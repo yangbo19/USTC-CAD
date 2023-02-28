@@ -1,0 +1,76 @@
+  ipcand         5
+
+  sparearea      15
+  aspect_ratio	 100
+
+
+  start_tempe	 200000
+  end_tempe	 100
+  iterations	 180 * percentage of the number of blocks
+  cooling_ratio  90
+
+  init_rand      1
+
+  layers	 1 * number of ties 
+  deltac_wgt     9980
+
+  opt_wire       1  * 1: optimize wire; 0: no wire optimization 
+  deltnt_wgt     20
+
+  deltvia_wgt    0
+  wgt_via	 1
+
+  out_wire       1
+
+  deltac_wt      60
+  deltnt_wt      40
+  deltvia_wt     0
+ 
+
+  ant_time     10
+
+  idle_g         200
+
+  opt_method     1  * 0-local search or 1-simulated annealing
+
+*  opt_ws_dist	 1   * 1: distribute the white space evenly on devices according to the signal via number
+*  wgt_wsdist     1  * weight for white space distribution
+
+* for power optimization
+*  thermal_opt	 0 *Thermal management flag
+
+* for signal via planning
+  svia_assignment  0  * 1 perform signal via planning, 0 skip signal via assignment
+  setSizeOrDim     0  * 1 specify grid size for grid structure, 
+                      * 0 Specify the number of rows and columns
+  signalvia_gridx  30
+  signalvia_gridy  30
+  signalvia_sizex  5
+  signalvia_sizey  5
+
+  aspect_ratio	100
+
+  end
+
+*NOTES:
+*  ipcand:   
+*            The number of insertion points selected during the block position enumeration.
+*            Please refer to the paper "Fixed-Outline Floorplanning: Block-Position Enumeration and 
+*            A New Method for Calculating Area Cost", IEEE Trans. on CAD, No.5, 2008.
+*  sparearea: 
+*            The percentage of white space (ratio of white space to the net block area)
+*  aspect_ratio:
+*            Aspect ratio defined as  Width/Heith
+*  init_rand:
+*            how to initially partition the blocks into device layers
+*  layers:
+*            Number of device layers
+* deltac_wgt, deltnt_wgt, deltvia_wgt:
+*            (deltac_wgt + deltnt_wgt + deltvia_wgt)/10000 = 10000
+*
+* opt_wire:
+*            1: with HPWL optimization
+*            0: without HPWL optimization
+* wgt_via:   
+*            1: with Through Silicon Via optimization
+*            0: without Through Silicon Via optimization
